@@ -4,6 +4,30 @@ A polished, modular **form template builder** built with React, MUI, Tailwind CS
 
 ---
 
+# moorthygithub-template-builder/
+
+├── README.md
+├── index.html
+├── package.json
+├── vite.config.js
+├── eslint.config.js
+└── src/
+├── App.jsx
+├── App.css
+├── index.css
+├── main.jsx
+├── constants/
+│ └── FieldTypes.js
+└── components/
+├── Builder.jsx
+├── FieldEditor.jsx
+├── FieldPalette.jsx
+├── Form.jsx
+├── Navbar.jsx
+├── Preview.jsx
+├── Section.jsx
+└── SortableField.jsx
+
 ## 🔧 Features
 
 ✅ Create and manage **multiple templates** (maximum of **five templates**) – state managed via **Redux Toolkit**  
