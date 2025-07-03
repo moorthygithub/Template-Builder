@@ -33,50 +33,56 @@ const FieldEditor = ({ field, onChange, onDelete }) => {
   const fieldTypeLabel =
     FIELD_TYPES.find((f) => f.type === field.type)?.label || "Field";
 
-  // Render dynamic input based on field type
+
   const renderFieldSpecificInput = () => {
     switch (field.type) {
       case "text":
         return (
-          <TextField
-            label="Placeholder"
-            value={field.placeholder || ""}
-            onChange={(e) => handleChange("placeholder", e.target.value)}
-            fullWidth
-            size="small"
-          />
+          <Box mt={2}>
+            <TextField
+              label="Placeholder"
+              value={field.placeholder || ""}
+              onChange={(e) => handleChange("placeholder", e.target.value)}
+              fullWidth
+              size="small"
+            />
+          </Box>
         );
       case "paragraph":
         return (
-          <TextField
-            label="Textarea Placeholder"
-            value={field.placeholder || ""}
-            onChange={(e) => handleChange("placeholder", e.target.value)}
-            fullWidth
-            multiline
-            rows={3}
-            size="small"
-          />
+          <Box mt={2}>
+            <TextField
+              label="Textarea Placeholder"
+              value={field.placeholder || ""}
+              onChange={(e) => handleChange("placeholder", e.target.value)}
+              fullWidth
+              multiline
+              rows={3}
+              size="small"
+            />
+          </Box>
         );
       case "dropdown":
       case "radio":
         return (
-          <TextField
-            label="Options (comma separated)"
-            value={field.options?.join(", ") || ""}
-            onChange={(e) =>
-              handleChange(
-                "options",
-                e.target.value.split(",").map((opt) => opt.trim())
-              )
-            }
-            fullWidth
-            size="small"
-          />
+          <Box mt={2}>
+            <TextField
+              label="Options (comma separated)"
+              value={field.options?.join(", ") || ""}
+              onChange={(e) =>
+                handleChange(
+                  "options",
+                  e.target.value.split(",").map((opt) => opt.trim())
+                )
+              }
+              fullWidth
+              size="small"
+            />
+          </Box>
         );
       case "number":
         return (
-          <>
+          <Box mt={2} display="flex" gap={2} flexDirection="column">
             <TextField
               label="Min Value"
               type="number"
@@ -84,7 +90,6 @@ const FieldEditor = ({ field, onChange, onDelete }) => {
               onChange={(e) => handleChange("min", e.target.value)}
               fullWidth
               size="small"
-              margin="dense"
             />
             <TextField
               label="Max Value"
@@ -93,28 +98,31 @@ const FieldEditor = ({ field, onChange, onDelete }) => {
               onChange={(e) => handleChange("max", e.target.value)}
               fullWidth
               size="small"
-              margin="dense"
             />
-          </>
+          </Box>
         );
       case "boolean":
         return (
-          <div className="text-sm text-gray-500">This is a checkbox field.</div>
+          <Box mt={2} className="text-sm text-gray-500">
+            This is a checkbox field.
+          </Box>
         );
       case "upload":
         return (
-          <div className="text-sm text-gray-500">Users can upload files.</div>
+          <Box mt={2} className="text-sm text-gray-500">
+            Users can upload files.
+          </Box>
         );
       case "image":
         return (
-          <div className="text-sm text-gray-500">Users can upload image.</div>
+          <Box mt={2} className="text-sm text-gray-500">
+            Users can upload image.
+          </Box>
         );
-
       default:
         return null;
     }
   };
-
   if (!field.editing) {
     return (
       <div className="bg-white border rounded-xl shadow-sm p-4 mb-4 flex justify-between items-start">

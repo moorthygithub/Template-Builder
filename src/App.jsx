@@ -21,7 +21,9 @@ function App() {
   const currentTemplate = templates.find((t) => t.id === activeTemplateId);
 
   return (
-    <Box sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh" }}>
+    <Box
+      sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh", overflowX: "auto" }}
+    >
       <Toaster position="top-right" />
 
       <Navbar tab={tab} setTab={setTab} />
